@@ -1,0 +1,50 @@
+import {test,expect} from './fixtures';
+test('submission gates, real uploads and auxiliary modal focus',async({page})=>{
+ const sample=await (await page.request.post('/api/samples/A')).json();
+ const files=[];
+ for(const d of sample.documents){files.push({name:d.name,mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document',buffer:await (await page.request.get(`/api/tasks/${sample.id}/documents/${d.id}/file`)).body()})}
+ await page.goto('/');
+ await page.getByRole('button',{name:'新建审核任务',exact:true}).click();
+ const dialog=page.getByRole('dialog',{name:'新建审核任务',exact:true});
+ await dialog.locator('input').fill('隔离测试的真实上传');
+ await dialog.getByRole('button',{name:'创建任务',exact:true}).click();
+ await expect(page.locator('.issue-panel')).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'提取关键信息'})).toBeDisabled();
+ await expect(page.getByRole('button',{name:/交叉核对.*未解锁/})).toBeDisabled();
+ const submit=page.getByRole('button',{name:'提交材料，进入抽取'});
+ await expect(submit).toBeDisabled();
+ await page.locator('input[type=file]').first().setInputFiles({name:'broken.pdf',mimeType:'application/pdf',buffer:Buffer.from('broken')});
+ await expect(page.getByText('文档解析失败：文件损坏、加密或格式不正确')).toBeVisible();
+ await page.getByRole('button',{name:'删除此文档'}).click();
+ for(let n=0;n<files.length;n++){
+  const card=page.locator('.doc-card').nth(n);
+  await card.locator('input[type=file]').setInputFiles(files[n]);
+  await expect(card.locator('.filename')).toHaveText(files[n].name);
+ }
+ await expect(submit).toBeEnabled();
+ await page.screenshot({path:'../test-results/staged-upload.png',fullPage:true});
+ await submit.click();
+ await page.getByRole('button',{name:'开始提取 / 重试'}).click();
+ await expect(page.locator('.doc-error')).toHaveCount(3);
+ await expect(page.locator('.issue-panel')).toHaveCount(0);
+ await page.getByRole('button',{name:'调用记录',exact:true}).click();
+ const logs=page.getByRole('dialog',{name:'模型调用记录',exact:true});
+ await expect(logs.locator('.log-table tbody tr')).not.toHaveCount(0);
+ await page.keyboard.press('Tab');
+ expect(await logs.evaluate(d=>d.contains(document.activeElement))).toBe(true);
+ await page.screenshot({path:'../test-results/staged-logs.png',fullPage:true});
+ await page.keyboard.press('Escape');await expect(logs).toHaveCount(0);
+ await page.getByRole('button',{name:'演示中心',exact:true}).click();
+ await page.getByRole('button',{name:'载入 A 组 · 一致'}).click();
+ await page.getByRole('button',{name:'已核对字段，进入下一步'}).click();
+ await page.getByRole('button',{name:'开始交叉核对'}).click();
+ await expect(page.getByText('当前审核范围内未发现异常')).toBeVisible();
+ await page.getByRole('button',{name:'确认已完成人工复核'}).click();
+ await page.getByRole('button',{name:'查看并导出报告'}).click();
+ await expect(page.getByRole('dialog',{name:'审核报告',exact:true}).getByRole('link',{name:'导出最终报告'})).toBeVisible();
+ await page.keyboard.press('Escape');await page.reload();
+ await expect(page.getByRole('button',{name:'查看并导出报告'})).toBeVisible();
+ await page.setViewportSize({width:390,height:844});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.screenshot({path:'../test-results/staged-mobile.png',fullPage:true});
+});

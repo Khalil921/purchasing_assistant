@@ -1,0 +1,25 @@
+import {test,expect} from '@playwright/test';
+test('login screen, wrong password, refresh and logout',async({page})=>{
+ await page.goto('/');
+ await expect(page.getByRole('heading',{name:'登录采核助手'})).toBeVisible();
+ expect((await page.request.get('/api/tasks')).status()).toBe(401);
+ await page.screenshot({path:'../test-results/login-desktop.png',fullPage:true});
+ await page.getByLabel('账号',{exact:true}).fill('OS-HUBU');
+ await page.getByLabel('密码',{exact:true}).fill('wrong');
+ await page.getByRole('button',{name:'登录工作台'}).click();
+ await expect(page.getByRole('alert')).toHaveText('账号或密码错误');
+ await page.getByLabel('密码',{exact:true}).fill('e2e-only-password');
+ await page.getByRole('button',{name:'显示密码'}).click();
+ await expect(page.getByLabel('密码',{exact:true})).toHaveAttribute('type','text');
+ await page.getByRole('button',{name:'隐藏密码'}).click();
+ await page.getByRole('button',{name:'登录工作台'}).click();
+ await expect(page.getByRole('heading',{name:'采购审核工作台'})).toBeVisible();
+ await page.reload();
+ await expect(page.getByRole('button',{name:'退出登录'})).toBeVisible();
+ await page.getByRole('button',{name:'退出登录'}).click();
+ await expect(page.getByRole('heading',{name:'登录采核助手'})).toBeVisible();
+ expect((await page.request.get('/api/tasks')).status()).toBe(401);
+ await page.setViewportSize({width:390,height:844});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.screenshot({path:'../test-results/login-mobile.png',fullPage:true});
+});

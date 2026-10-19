@@ -1,0 +1,40 @@
+.engine{margin:20px 0;padding:24px}.engine-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:20px 0}.engine-grid>div{padding:18px;background:#f4f8f7;border-radius:8px}.engine-grid p{line-height:1.7}.engine-grid small{color:#647b83}.ai-finding{padding:20px;margin:18px 0}.task-row{display:flex;align-items:center}.task-row .task-select{flex:1;min-width:0}.task-row .task-delete{width:34px;padding:8px;flex-shrink:0;color:#9c4a42}.delete-warning{color:#a84336;line-height:1.8}@media(max-width:850px){.engine-grid{grid-template-columns:1fr}}
+.task-list{display:flex;flex-direction:column;gap:6px;padding:2px}
+.task-list .task-row{position:relative;display:flex;align-items:center;gap:2px;min-height:66px;padding:3px 5px;border:1px solid transparent;border-radius:9px;transition:background .15s,border-color .15s}
+.task-list .task-row:hover{background:#f5f8f7}
+.task-list .task-row:has(.chosen){background:#eaf3ef;border-color:#d8e7df}
+.task-list .task-row:has(.chosen)::before{content:'';position:absolute;left:-1px;top:16px;bottom:16px;width:3px;border-radius:3px;background:#21775e}
+.task-list .task-select{display:flex;justify-content:flex-start;gap:11px;flex:1;min-width:0;min-height:58px;padding:9px 7px;border:0;box-shadow:none;background:transparent;text-align:left;color:#415a63;font-size:14px;border-radius:6px}
+.task-list .task-select.chosen{background:transparent;color:#175b48}
+.task-list .task-select>svg{flex-shrink:0;color:#8a9da4}
+.task-list .chosen>svg{color:#21775e}
+.task-list .task-select>span{display:block;flex:1;min-width:0;line-height:1.35;font-weight:500}
+.task-list .task-select small{font-size:12px;font-weight:400;margin-top:5px;color:#8a9da4}
+.task-list .task-delete{display:flex;align-items:center;justify-content:center;flex:0 0 28px;width:28px;min-height:28px;height:28px;padding:0;border:0;border-radius:6px;box-shadow:none;background:transparent;color:#99a7ac;opacity:0;transition:opacity .15s,color .15s,background .15s}
+.task-list .task-row:hover .task-delete,.task-list .task-row:focus-within .task-delete,.task-list .task-row:has(.chosen) .task-delete{opacity:1}
+.task-list .task-delete:hover{color:#b84f43;background:#fbece8}
+.task-list .task-delete:focus-visible,.task-list .task-select:focus-visible{outline:2px solid #438b73;outline-offset:1px}
+@media(hover:none){.task-list .task-delete{opacity:1}}
+.delete-modal{padding:28px!important}
+.delete-heading{display:flex;align-items:center;gap:13px;margin-bottom:24px}
+.delete-symbol{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:13px;background:#fceeea;color:#bc5145;flex-shrink:0}
+.delete-heading h2{font-size:20px;line-height:1.4;margin:0 0 4px}
+.delete-heading p{font-size:13px;margin:0;color:#8b9ba3}
+.delete-heading .delete-close{margin-left:auto;padding:6px;min-height:30px;width:30px;border:0;background:transparent;color:#95a3aa;box-shadow:none;flex-shrink:0}
+.delete-heading .delete-close:hover{background:#f2f5f4;color:#425a63}
+.delete-task-summary{display:flex;align-items:center;gap:12px;background:#f6f8f8;border:1px solid #e8eeee;border-radius:10px;padding:15px 16px}
+.delete-task-icon{color:#80969c;display:flex;flex-shrink:0}
+.delete-task-summary>div{min-width:0}
+.delete-task-summary strong{display:block;font-size:15px;line-height:1.5;overflow-wrap:anywhere;color:#2a4650}
+.delete-task-summary small{display:block;font-size:12px;color:#8b9da4;margin-top:4px}
+.delete-modal .delete-description{font-size:14px;line-height:1.85;color:#6e838b;margin:18px 0 14px}
+.delete-notice{display:flex;align-items:flex-start;gap:8px;background:#fff6f2;border-radius:8px;padding:11px 12px;color:#af6553;font-size:12px;line-height:1.7}
+.delete-notice svg{flex-shrink:0;margin-top:2px}
+.delete-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;border-top:1px solid #edf1f0;padding-top:20px;margin-top:24px}
+.delete-actions>button{width:100%;min-width:0;height:44px;min-height:44px;padding:9px 12px;white-space:nowrap;font-size:14px;font-weight:500;border-radius:7px;justify-content:center}
+.delete-actions .delete-confirm{background:#bd5548;color:#fff;border:1px solid #bd5548}
+.delete-actions .delete-confirm:hover{background:#a94539;border-color:#a94539}
+.delete-actions>button:focus{outline:none}
+.delete-actions>button:focus-visible{outline:2px solid #a4b5ad;outline-offset:3px}
+.delete-actions .delete-confirm:focus-visible{outline-color:#d9988e}
+@media(max-width:480px){.delete-modal{padding:22px!important}.delete-heading{gap:10px}.delete-heading h2{font-size:19px}.delete-actions>button{flex:1}}

@@ -1,0 +1,100 @@
+/* Larger controls and flexible layouts complement the shared type scale. */
+button, .button {
+  min-height: 40px;
+  padding: 10px 16px;
+}
+input, select, textarea { min-height: 40px; }
+.sidebar { width: 264px; padding: 30px 20px 20px; }
+.main { margin-left: 264px; }
+.brand { gap: 12px; }
+.brand-icon { width: 44px; height: 46px; }
+.nav { min-height: 48px; }
+.task-label button { min-height: 30px; padding: 4px; }
+.task-list > button { min-height: 68px; }
+.task-list > button > svg { flex-shrink: 0; }
+.sidebar-bottom { line-height: 1.7; }
+header { height: 76px; }
+main { max-width: 1720px; }
+.avatar { width: 36px; height: 36px; }
+.page-heading { gap: 20px; }
+.demo-banner { flex-wrap: wrap; row-gap: 16px; }
+.demo-symbol { flex-shrink: 0; width: 44px; height: 44px; }
+.demo-banner > div:nth-child(2) { flex: 1; min-width: 230px; }
+.demo-banner p { max-width: 720px; }
+.task-title { gap: 20px; }
+.task-title > div { min-width: 0; }
+.task-title h2 { flex-wrap: wrap; line-height: 1.5; }
+.task-title p { overflow-wrap: anywhere; }
+.task-title > .button { flex-shrink: 0; }
+.steps { min-height: 70px; overflow-x: auto; }
+.step span { width: 26px; height: 26px; flex-shrink: 0; }
+.step-line { min-width: 16px; margin: 0 12px; }
+.metric { min-height: 152px; }
+.metric small { line-height: 1.8; }
+.section-nav { flex-wrap: wrap; row-gap: 12px; }
+.section-nav > div { flex-wrap: wrap; }
+.section-nav > div > button { min-height: 48px; }
+.section-nav .audit-actions { margin-left: auto; }
+.audit-actions input { width: 78px; }
+.section-title { gap: 16px; }
+.section-title p { line-height: 1.8; }
+.section-title button { flex-shrink: 0; }
+.doc-card { padding: 20px; }
+.doc-heading { flex-wrap: wrap; gap: 10px; }
+.doc-heading > div { flex: 1; min-width: 100px; }
+.doc-heading .tag { margin-left: 0; font-size: 12px; }
+.doc-icon { width: 42px; height: 46px; }
+.filename { line-height: 1.8; }
+.doc-buttons { flex-wrap: wrap; }
+.doc-buttons button { min-height: 38px; }
+.footnote { align-items: flex-start; line-height: 1.8; }
+.footnote svg { flex-shrink: 0; margin-top: 4px; }
+.upload { min-height: 156px; justify-content: center; }
+.filters { flex-wrap: wrap; }
+.search { min-width: 0; max-width: 100%; }
+.search input { width: 280px; max-width: 100%; }
+.table-scroll table { min-width: 780px; }
+th { padding-top: 15px; padding-bottom: 15px; }
+td { padding-top: 19px; padding-bottom: 19px; }
+td strong, .explanation { line-height: 1.8; }
+.check-details { line-height: 1.8; }
+footer { flex-wrap: wrap; line-height: 1.8; }
+footer > div { flex-wrap: wrap; }
+.drawer { width: min(660px, 100%); }
+.drawer p { line-height: 1.9; }
+.evidence small { font-size: 13px; line-height: 1.8; }
+.evidence button { min-height: 36px; }
+.modal { padding: 30px; }
+.modal.small { width: min(480px, 92vw); }
+.field { line-height: 1.7; }
+.modal-footer { gap: 18px; }
+.modal-footer > button { flex-shrink: 0; }
+
+@media (max-width: 1200px) {
+  .demo-actions { margin-left: auto; }
+  .doc-grid { grid-template-columns: 1fr; }
+  .doc-heading > div { flex: 0 1 auto; }
+  .doc-heading .tag { margin-left: auto; }
+}
+@media (max-width: 1150px) {
+  .sidebar { width: 224px; padding-inline: 14px; }
+  .main { margin-left: 224px; }
+  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metric { padding: 20px; }
+}
+@media (max-width: 850px) {
+  .main { margin-left: 0; }
+  .page-heading { flex-wrap: wrap; gap: 16px; }
+  .demo-banner > div:nth-child(2) { min-width: 0; flex-basis: 100%; }
+  .demo-actions { margin-left: 0; flex-wrap: wrap; flex-shrink: 1; }
+  .task-title { flex-wrap: wrap; }
+  .section-nav .audit-actions { margin-left: 0; margin-bottom: 8px; }
+  .section-nav > div { gap: 16px; }
+  .metric { padding: 16px; }
+  .metric > strong { font-size: 28px; }
+  .search { width: 100%; }
+  .search input { width: 100%; }
+  .section-title { flex-wrap: wrap; }
+  .modal { padding: 22px; }
+  .modal-footer { flex-wrap: wrap; }
+}

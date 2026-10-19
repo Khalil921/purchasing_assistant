@@ -1,0 +1,6 @@
+# Create auth.local.toml using: python -m backend.auth --username OS-HUBU
+# Store only a PBKDF2 hash, never a plaintext password.
+[auth]
+username = "OS-HUBU"
+password_hash = ""
+session_hours = 8

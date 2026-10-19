@@ -1,0 +1,21 @@
+.task-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 20px;padding:12px 0;border-bottom:1px solid #e1e8e5}
+.task-tools>span{color:#7f9388;font-size:13px;margin-right:auto}
+.task-tools button{font-size:13px;min-height:38px}
+.workflow-steps button:disabled{cursor:not-allowed;opacity:.55}
+.workflow-buttons button:disabled{cursor:not-allowed}
+.preflight{padding:30px;line-height:1.9}
+.preflight input{width:110px;margin-left:12px}
+.layer-dialog{border:0;padding:0;background:transparent;border-radius:12px;width:min(1100px,calc(100vw - 40px));max-width:none;max-height:90dvh;color:#22333d;box-shadow:0 20px 80px #12273326}
+.layer-dialog::backdrop{background:#172f3c77;backdrop-filter:blur(2px)}
+body:has(dialog[open]){overflow:hidden}
+.layer-dialog>.modal{width:100%;max-height:90dvh;box-shadow:none}
+.layer-dialog:has(.small){width:min(480px,calc(100vw - 32px))}
+.layer-dialog:has(.source-modal){width:min(850px,calc(100vw - 40px))}
+.layer-dialog.editor-dialog{width:min(1200px,calc(100vw - 40px))}
+.drawer-dialog{margin:0 0 0 auto;width:min(660px,100vw);height:100dvh;max-height:100dvh;border-radius:0}
+.drawer-dialog>.drawer{width:100%;height:100%;overflow:auto}
+.auxiliary-modal>.card{border:0;padding:0;box-shadow:none}
+.report-preview{font-size:15px;line-height:1.9}
+.report-preview .button.primary{background:#16765d;color:#fff}
+.task-tools~.docs-panel{scroll-margin-top:20px}
+@media(max-width:850px){.layer-dialog{width:calc(100vw - 20px)}.task-tools>span{flex-basis:100%}.task-tools button{flex:1}.preflight{padding:22px}.layer-dialog.editor-dialog{width:calc(100vw - 16px)}}

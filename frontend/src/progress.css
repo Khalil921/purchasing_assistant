@@ -1,0 +1,25 @@
+.layer-dialog.progress-dialog{width:min(460px,calc(100vw - 32px));border-radius:16px}
+.progress-window{background:#fff;padding:22px 28px 25px;text-align:center;overflow:hidden}
+.progress-window-top{display:flex;justify-content:space-between;align-items:center;color:#789184;font-size:12px}
+.progress-window-top>span{display:flex;align-items:center;gap:7px}
+.progress-window-top>button{padding:3px 5px;min-height:30px;border:0;color:#879b90}
+.progress-emblem{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:#eaf5ee;color:#267a5b;margin:22px auto}
+.progress-window h2{font-size:22px;color:#214c38;margin-bottom:9px;line-height:1.6}
+.progress-task{font-size:13px;color:#8a9c91;overflow-wrap:anywhere;margin-bottom:16px}
+.progress-timer{display:flex;gap:7px;align-items:center;justify-content:center;font-size:12px;color:#8b9c93}
+.progress-timer strong{color:#4b7f66;font-weight:500;font-variant-numeric:tabular-nums}
+.progress-indeterminate{background:#edf3ef;height:5px;border-radius:4px;overflow:hidden;margin:24px 0 18px}
+.progress-indeterminate span{display:block;width:35%;height:100%;border-radius:4px;background:#64a586;animation:progress-sweep 1.7s ease-in-out infinite}
+@keyframes progress-sweep{0%{transform:translateX(-105%)}100%{transform:translateX(390%)}}
+.progress-explanation{font-size:13px;line-height:1.9;color:#789081;margin-bottom:21px}
+.progress-window .progress-log-button{width:100%;min-height:46px;font-size:14px}
+.progress-footnote{font-size:11px;color:#a0ada5;margin:16px 0 0}
+.progress-floating{position:fixed;right:24px;bottom:24px;z-index:30;display:flex;align-items:center;gap:13px;max-width:calc(100vw - 32px);padding:17px 18px;background:#fff;border:1px solid #cde0d4;border-radius:12px;box-shadow:0 10px 40px #163a2924;color:#2c7b59}
+.progress-floating>div{min-width:0;max-width:260px}
+.progress-floating strong{display:block;font-size:13px;color:#3c644e;overflow-wrap:anywhere}
+.progress-floating small{display:block;font-size:11px;color:#8a9e90;margin-top:5px}
+.progress-floating button{padding:6px 10px;min-height:34px;font-size:12px;white-space:nowrap}
+.log-processing{display:flex;align-items:center;gap:9px;padding:11px 14px;border-radius:7px;background:#edf7f0;color:#3e805d;font-size:13px;margin-bottom:18px}
+.task-tools .call-log-entry{color:#16765d;border-color:#b4d3c2;background:#f3faf6}
+@media(max-width:600px){.progress-floating{left:16px;right:16px;bottom:16px;gap:10px;flex-wrap:wrap}.progress-floating>div{flex:1;max-width:none}.progress-floating>button:last-child{margin-left:auto}.progress-window{padding:18px 22px 23px}}
+@media(prefers-reduced-motion:reduce){.progress-indeterminate span{animation:none;width:100%;opacity:.6}}

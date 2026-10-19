@@ -1,0 +1,22 @@
+.workflow{background:#fff;border:1px solid #cfe1d8;border-radius:10px;margin-bottom:24px;overflow:hidden}
+.workflow-steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-bottom:1px solid #e2ebe6}
+.workflow-steps>button{border:0;border-right:1px solid #edf1ef;border-radius:0;justify-content:flex-start;gap:9px;text-align:left;padding:16px 12px;background:white;font-size:13px;color:#87948e}
+.workflow-steps>button>span{width:27px;height:27px;flex-shrink:0;border:1px solid #dce4df;border-radius:50%;display:grid;place-items:center}
+.workflow-steps small{display:block;font-size:11px;font-weight:400;margin-top:5px;color:#96a49d}
+.workflow-steps>button.current{background:#eaf5ef;color:#16684e}
+.workflow-steps>.current>span{background:#16765d;border-color:#16765d;color:white}
+.workflow-steps>button.complete{color:#467760}
+.workflow-next{padding:23px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:#f7fbf8}
+.workflow-next>div:first-child{max-width:750px}
+.workflow-next small{font-size:12px;color:#5c8c71}
+.workflow-next h3{font-size:20px;margin:7px 0 8px}
+.workflow-next p{font-size:14px;margin:0;line-height:1.9;color:#647e6e}
+.workflow-buttons{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;flex-shrink:0;max-width:380px}
+.workflow-buttons .primary{font-size:14px}
+.workflow-buttons .button.primary,.workflow-buttons .button.primary:hover{background:#16765d;color:#fff;border-color:#16765d}
+.workflow-note{margin:0;padding:12px 24px;font-size:12px;border-top:1px solid #e2ebe6;color:#7c8e83}
+.log-help{font-size:13px;line-height:1.9}
+.log-table td{vertical-align:top;min-width:130px;cursor:default;max-width:420px;overflow-wrap:anywhere}
+.log-table details{margin-top:9px;font-size:12px}.log-table summary{cursor:pointer;color:#31765b}
+@media(max-width:1400px){.workflow-next{flex-wrap:wrap}.workflow-buttons{justify-content:flex-start;max-width:none}.workflow-steps>button{flex-wrap:wrap;font-size:12px}}
+@media(max-width:850px){.workflow-steps{grid-template-columns:repeat(3,minmax(0,1fr))}.workflow-steps>button{padding:13px 10px}.workflow-next{padding:19px}.workflow-buttons{flex-shrink:1;width:100%}.workflow-note{padding:12px 19px}.workflow-next h3{font-size:18px}}

@@ -1,0 +1,4 @@
+# Copy this file to config.local.toml and fill in your DeepSeek key.
+# config.local.toml is ignored by Git and never served to the frontend.
+[model]
+api_key = ""

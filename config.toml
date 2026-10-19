@@ -1,0 +1,9 @@
+# Public settings. Never place a real API key in this tracked file.
+# Store the key in config.local.toml or DEEPSEEK_API_KEY instead.
+[model]
+provider = "deepseek"
+api_base = "https://api.deepseek.com"
+name = "deepseek-flash"
+timeout_seconds = 40
+max_attempts = 2
+max_tokens = 8192
